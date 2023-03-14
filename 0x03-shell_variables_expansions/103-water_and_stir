@@ -1,3 +1,2 @@
 #!/bin/base
-result=$(( $(( ${WATER//:/}#water )) + $(( ${STIR//:/}#stir )) ))
-echo ${result//@/bestchol:}
+result=$(( $(( ${WATER//:/}#water )) + $(( ${STIR//:/}#stir )) )) echo ${result//@/bestchol:}
