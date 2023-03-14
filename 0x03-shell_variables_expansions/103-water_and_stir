@@ -1,2 +1,2 @@
 #!/bin/bash
-result=$(( $(( ${WATER//:/}#water )) + $(( ${STIR//:/}#stir )) )) echo ${result//@/bestchol:}
+read a; read b; result=$(( $(( ${a//:/}#water )) + $(( ${b//:/}#stir )) )); echo ${result//@/bestchol:}
