@@ -1,2 +1,32 @@
 #!/bin/bash
-printf "%o\n" $(( $((5#$(echo $WATER | tr water 01234))) + $((5#$(echo $STIR | tr stir. 01234))) )) | tr 01234567 behlnort
+convert_base() {
+    number=$1
+    from_base=$2
+    to_base=$3
+
+    base10=0
+    len=${#number}
+    for (( i=0; i<$len; i++ )); do
+        char=${number:$i:1}
+        digit=$(echo "${char}" | tr '[:lower:]' '[:upper:]' | tr "A-F" "10-15")
+        base10=$(( $base10 * $from_base + $digit ))
+    done
+    output=""
+    while [ $base10 -gt 0 ]; do
+        remainder=$(( $base10 % $to_base ))
+        if [ $remainder -lt 10 ]; then
+            output="${remainder}${output}"
+        else
+            char=$(echo "obase=16; ${remainder}" | bc | tr '[:upper:]' '[:lower:]')
+            output="${char}${output}"
+        fi
+        base10=$(( $base10 / $to_base ))
+    done
+    echo $output
+}
+
+water_base10=$(convert_base ${WATER} water 10)
+stir_base10=$(convert_base ${STIR} stir 10)
+result_base10=$(( $water_base10 + $stir_base10 ))
+result_bestchol=$(convert_base ${result_base10} 10 bestchol)
+echo ${result_bestchol}
