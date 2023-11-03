@@ -1,0 +1,39 @@
+To design a one-server web infrastructure that hosts the website reachable via www.foobar.com and address your requirements, specifics, and issues.
+
+Also in diagram::
+Server:
+
+A server is a computer or a system that responds to requests from other computers, known as clients. In this context, your server is a physical or virtual machine with an IP address of 8.8.8.8 that hosts your website.
+Domain Name:
+
+The domain name (e.g., www.foobar.com) is a human-readable address that points to your server's IP address (8.8.8.8). It makes it easier for users to access your website instead of remembering the IP address.
+DNS Record:
+
+The "www" in www.foobar.com is a subdomain and is typically a CNAME (Canonical Name) record in DNS. It points to the primary domain, in this case, foobar.com, or directly to the server's IP address.
+Web Server (Nginx):
+
+The web server (Nginx in this case) is responsible for handling HTTP requests from users' browsers. It receives requests, processes them, and sends back the appropriate web content (HTML, CSS, JavaScript, images, etc.) to the user's browser.
+Application Server:
+
+The application server is responsible for running the web application code. It processes dynamic requests, interacts with the database, and generates dynamic content based on user input and business logic.
+Application Files (Code Base):
+
+The application files, or the code base, contain the instructions and logic for your web application. This code is executed by the application server to generate and serve web pages.
+Database (MySQL):
+
+The database stores and manages the structured data needed by your web application. It can be used for user data, content, configuration, and more. MySQL is a popular relational database management system.
+Communication with User's Computer:
+
+When a user requests a page from www.foobar.com, their computer sends an HTTP request to the server's IP address (8.8.8.8). The web server processes this request, and if dynamic content is needed, it communicates with the application server and database to generate the response. Finally, the response is sent back to the user's computer over the internet, and it's displayed in their browser.
+Issues with this Infrastructure:
+
+Single Point of Failure (SPOF):
+
+This setup has a single server, which means if it goes down for any reason (hardware failure, software issues, etc.), the entire website becomes inaccessible. To mitigate this, you can consider adding redundancy or load balancing across multiple servers.
+Downtime During Maintenance:
+
+Deploying new code may require the web server to be restarted, causing downtime. To minimize this, you can set up a load balancer and deploy code changes to one server while the other continues to serve traffic. This way, there's minimal to no downtime.
+Scaling Challenges:
+
+If your website experiences a sudden surge in traffic, a single server may not handle the load efficiently. To scale, you could consider adding more servers, implementing load balancing, or using cloud-based solutions to dynamically allocate resources based on traffic.
+In summary, this infrastructure serves as a basic setup for hosting a website, but it has limitations that should be addressed to improve reliability, scalability, and maintainability. Redundancy, load balancing, and cloud-based solutions can help mitigate these issues.

@@ -1,0 +1,40 @@
+using 3 firewalls Enhanced Infrastructure on ALX:
+
+3 Firewalls:
+
+Firewalls are added for improved security. They act as a barrier between your servers and the internet, controlling incoming and outgoing traffic based on predefined security rules.
+SSL Certificate:
+
+The SSL certificate is used to serve www.foobar.com over HTTPS. HTTPS ensures secure and encrypted data transmission between the user's browser and your web server, protecting sensitive information from eavesdropping and tampering.
+3 Monitoring Clients (Data Collectors):
+
+Monitoring clients (e.g., for Sumo Logic or other monitoring services) collect and transmit data about the system's performance, resource utilization, and security incidents to a central monitoring platform. This data is crucial for identifying issues and ensuring the system runs smoothly.
+Specifics:
+
+Firewalls:
+
+Firewalls are added to control and secure network traffic. They protect your infrastructure from unauthorized access, malicious attacks, and unwanted traffic. By defining firewall rules, you can specify which types of traffic are allowed or denied, enhancing the security of your infrastructure.
+HTTPS:
+
+Serving traffic over HTTPS is essential for security. It encrypts data in transit, ensuring that sensitive information, like login credentials or payment data, remains confidential and secure during transmission.
+Monitoring:
+
+Monitoring tools are used to keep track of the system's performance, health, and security. They collect data on server load, response times, error rates, and other metrics. This data is vital for identifying issues, optimizing performance, and ensuring the system's reliability.
+Data Collection:
+
+Monitoring tools typically employ agents or data collectors on the servers to collect and transmit data. These agents collect data on CPU usage, memory, disk space, and more. This information is then sent to the monitoring platform, which analyzes the data and generates insights.
+Monitoring Web Server QPS (Queries Per Second):
+
+To monitor web server QPS, you can set up monitoring tools to track the number of HTTP requests per second that your web server receives. This helps you identify traffic patterns and can be valuable for capacity planning and performance optimization.
+Issues with this Infrastructure:
+
+Terminating SSL at the Load Balancer Level:
+
+Terminating SSL at the load balancer can be an issue because it means SSL decryption happens at the load balancer. If not properly secured, this could expose sensitive data during the transfer from the load balancer to the web server. It's essential to ensure secure SSL termination practices and maintain the security of the decrypted data.
+Single MySQL Server for Writes:
+
+Having only one MySQL server capable of accepting writes is a single point of failure. If it goes down, write operations will fail, potentially causing data loss or downtime. To address this, consider implementing a MySQL cluster with multiple write-capable nodes for redundancy.
+Servers with All the Same Components:
+
+Having servers with identical components can be problematic because a failure in one component, such as the web server, might affect all servers simultaneously. Diversifying components across servers can help reduce the impact of component-specific failures.
+To mitigate these issues, consider implementing SSL termination best practices, setting up a high-availability MySQL cluster, and introducing component diversity in your server setup. This will enhance security and system reliability.

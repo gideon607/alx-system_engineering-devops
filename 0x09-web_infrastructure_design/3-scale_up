@@ -1,0 +1,23 @@
+A more scaled up infrastructure::: on ALX:
+
+1 Additional Server:
+
+The additional server is added for redundancy and fault tolerance. If one server fails, the other can continue serving the website.
+Load Balancer (HAproxy) Cluster:
+
+The load balancer cluster, composed of two HAproxy instances, is introduced to distribute incoming traffic across multiple servers. This improves performance, availability, and fault tolerance.
+Split Components:
+
+Each component (web server, application server, and database) is placed on its own dedicated server to improve modularity, scalability, and isolation. This separation makes it easier to manage and scale each component individually as needed.
+Specifics:
+
+Additional Server:
+
+The extra server is introduced to create redundancy. If one server fails, the other can continue to serve the website, reducing the risk of downtime. Redundancy is crucial for high availability.
+Load Balancer Cluster:
+
+A load balancer cluster is created to distribute incoming traffic across multiple servers. This distributes the load, improves performance, and ensures that even if one load balancer fails, the other can seamlessly take over. It also adds redundancy at the load balancing level.
+Split Components:
+
+Separating components onto dedicated servers allows for better resource allocation and scaling options. If, for example, the web server requires more resources due to increased traffic, you can scale it independently without affecting the application server or database. This isolation improves system flexibility.
+This updated infrastructure provides enhanced redundancy, scalability, and fault tolerance, which are critical for maintaining a highly available and performant web application.

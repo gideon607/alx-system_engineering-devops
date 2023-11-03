@@ -1,0 +1,46 @@
+The Enhanced Infrastructure: for ALX:
+
+2 Servers:
+
+We're adding an additional server for redundancy and improved reliability. If one server fails, the other can continue serving the website.
+Web Server (Nginx):
+
+The web server remains responsible for handling HTTP requests and serving static content like HTML, CSS, and images.
+Application Server:
+
+The application server is used to run the web application code and generate dynamic content based on user requests.
+Load Balancer (HAproxy):
+
+The load balancer distributes incoming web requests across multiple servers, improving performance and reliability. It's a critical addition for load distribution.
+Application Files (Code Base):
+
+The application code files contain the logic for your web application, executed by the application server.
+Database (MySQL):
+
+The database stores structured data. MySQL is used for data storage and retrieval.
+Specifics:
+
+Load Balancer Algorithm:
+
+HAProxy can be configured with various load-balancing algorithms, such as round-robin, least connections, or least response time. The choice of algorithm depends on your specific needs. Round-robin is a simple and commonly used algorithm where each request is directed to the next server in a list, cycling through the servers.
+Active-Active vs. Active-Passive:
+
+Active-Active means both servers are actively handling traffic simultaneously, spreading the load. Active-Passive involves one server actively serving traffic while the other acts as a standby, only taking over if the active server fails. The choice depends on your redundancy requirements. Active-Active offers better performance, while Active-Passive offers more reliability.
+Database Primary-Replica (Master-Slave) Cluster:
+
+In a Primary-Replica cluster, the Primary (Master) database is the write-master that handles write operations. Replicas (Slaves) replicate data from the Primary and serve read operations, improving read scalability and redundancy.
+Difference Between Primary and Replica Nodes:
+
+The Primary node handles write operations (INSERT, UPDATE, DELETE) and is responsible for maintaining data consistency. The Replica nodes serve read operations, reducing the read load on the Primary node. This separation improves overall database performance and fault tolerance.
+Issues with this Infrastructure:
+
+Single Points of Failure (SPOF):
+
+The infrastructure still has single points of failure at the load balancer level, as well as the web and application servers. If any of these fail, it can disrupt service. Redundancy or failover mechanisms can address this.
+Security Issues:
+
+There are security concerns like the absence of a firewall and no HTTPS. A firewall is essential for controlling incoming and outgoing traffic. HTTPS is needed to secure data transmission between clients and the servers. Implementing firewalls and HTTPS is crucial for data protection and security.
+No Monitoring:
+
+Without monitoring tools, you won't be aware of the system's health, performance, or potential issues. Implementing monitoring solutions is essential for proactive maintenance and issue detection.
+To address these issues, consider implementing failover mechanisms, firewalls, and HTTPS for enhanced security and monitoring tools for better infrastructure management.
