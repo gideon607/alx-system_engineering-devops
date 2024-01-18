@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Alx 0-main
+0-main
 """
 import sys
 
