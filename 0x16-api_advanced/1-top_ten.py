@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """
-
 first 10 by hot posts
 """
 
