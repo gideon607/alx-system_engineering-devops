@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"first 10 on fire hot posts"
+"""
+
+first 10 by hot posts
+"""
 
 import requests
 

@@ -1,6 +1,8 @@
 #!/usr/bin/python3
+"""
 
-"subscribers count on reddit"
+subscribers count on reddit
+"""
 
 import requests
 
